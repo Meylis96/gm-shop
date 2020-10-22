@@ -57,7 +57,7 @@ const products = [
         price: 15,
         countInStock: 20,
         rating: 5,
-        numReviews: 3
+        numReviews: 1
     }
 ];
 
