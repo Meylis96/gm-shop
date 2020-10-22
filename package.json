@@ -1,0 +1,22 @@
+{
+  "name": "gm-shop",
+  "version": "1.0.0",
+  "description": "GM SHOP",
+  "main": "server.js",
+  "scripts": {
+    "start": "node backend/server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Meylis96/gm-shop.git"
+  },
+  "author": "Meylis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Meylis96/gm-shop/issues"
+  },
+  "homepage": "https://github.com/Meylis96/gm-shop#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
