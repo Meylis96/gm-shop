@@ -2,7 +2,7 @@ const products = [
     {
         name: 'Стиральный порошок Ariel',
         image: '/images/powder.jpg',
-        desciption: 'Стиральный порошок для цветных вещей',
+        description: 'Стиральный порошок для цветных вещей',
         brand: 'Ariel',
         category: 'Порошки',
         price: 125,
@@ -14,7 +14,7 @@ const products = [
     {
         name: 'Жидкое мыло',
         image: '/images/soap.jpg',
-        desciption: 'Турецкое жидкое мыло',
+        description: 'Турецкое жидкое мыло',
         brand: 'Ulker',
         category: 'Мыло',
         price: 25,
@@ -26,7 +26,7 @@ const products = [
     {
         name: 'Мужской шамнунь для волос H&S',
         image: '/images/shampoo.jpg',
-        desciption: 'Мужской шампунь для жирных волос',
+        description: 'Мужской шампунь для жирных волос',
         brand: 'Head & Shoulders',
         category: 'Шампуни',
         price: 45,
@@ -38,7 +38,7 @@ const products = [
     {
         name: 'Мужской дезодорант',
         image: '/images/deodorant.jpg',
-        desciption: 'Мужской дезодорант',
+        description: 'Мужской дезодорант',
         brand: 'Nivea',
         category: 'Дезодоранты',
         price: 28,
@@ -50,7 +50,7 @@ const products = [
     {
         name: 'Туалетная бумага 2x2',
         image: '/images/paper.jpg',
-        desciption: 'Белая туалетная бумага 4шт.',
+        description: 'Белая туалетная бумага 4шт.',
         brand: 'Angel soft',
         category: 'Бумажные изделия',
         price: 15,
