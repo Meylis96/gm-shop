@@ -1,6 +1,5 @@
 const products = [
     {
-        _id: '1',
         name: 'Стиральный порошок Ariel',
         image: '/images/powder.jpg',
         desciption: 'Стиральный порошок для цветных вещей',
@@ -11,8 +10,8 @@ const products = [
         rating: 4.5,
         numReviews: 4
     },
+
     {
-        _id: '2',
         name: 'Жидкое мыло',
         image: '/images/soap.jpg',
         desciption: 'Турецкое жидкое мыло',
@@ -23,8 +22,8 @@ const products = [
         rating: 3.5,
         numReviews: 8
     },
+
     {
-        _id: '3',
         name: 'Мужской шамнунь для волос H&S',
         image: '/images/shampoo.jpg',
         desciption: 'Мужской шампунь для жирных волос',
@@ -35,8 +34,8 @@ const products = [
         rating: 5,
         numReviews: 3
     },
+
     {
-        _id: '4',
         name: 'Мужской дезодорант',
         image: '/images/deodorant.jpg',
         desciption: 'Мужской дезодорант',
@@ -47,8 +46,8 @@ const products = [
         rating: 3,
         numReviews: 6
     },
+    
     {
-        _id: '5',
         name: 'Туалетная бумага 2x2',
         image: '/images/paper.jpg',
         desciption: 'Белая туалетная бумага 4шт.',
