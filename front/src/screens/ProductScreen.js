@@ -39,7 +39,7 @@ const ProductScreen = ({ match }) => {
                             Цена: {product.price} TMT
                         </ListGroup.Item>
                         <ListGroup.Item>
-                            Описание: {product.desciption}
+                            Описание: {product.description}
                         </ListGroup.Item>
                     </ListGroup>
                 </Col>

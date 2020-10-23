@@ -2,6 +2,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 import connectDB from './config/db.js';
 import colors from 'colors';
+import { notFound, errorHandler } from './middleware/errorMiddleware.js';
 import productRoutes from './rotes/productRoutes.js';
 
 
@@ -16,6 +17,9 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api/products', productRoutes);
+
+app.use(notFound);
+app.use(errorHandler);
 
 app.get('/api/products', (req, res) => {
     res.json(products);
