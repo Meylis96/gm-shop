@@ -1,42 +1,38 @@
 {
-  "name": "gm-shop",
-  "version": "1.0.0",
-  "description": "GM SHOP",
-  "main": "server.js",
-  "type": "module",
-  "scripts": {
-    "start": "node backend/server",
-    "server": "nodemon backend/server",
-    "client": "npm start --prefix front",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "data:import": "node backend/seeder",
-    "data:destroy": "node backend/seeder -d"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Meylis96/gm-shop.git"
-  },
-  "author": "Meylis",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Meylis96/gm-shop/issues"
-  },
-  "homepage": "https://github.com/Meylis96/gm-shop#readme",
-  "dependencies": {
-    "bcryptjs": "^2.4.3",
-    "colors": "^1.4.0",
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "express-async-handler": "^1.1.4",
-    "mongoose": "^5.10.9"
-  },
-  "devDependencies": {
-    "concurrently": "^5.3.0",
-    "eslint-config-prettier": "^6.14.0",
-    "eslint-plugin-prettier": "^3.1.4",
-    "husky": "^4.3.0",
-    "lint-staged": "^10.4.2",
-    "nodemon": "^2.0.6",
-    "prettier": "^2.1.2"
-  }
+"name": "gm-shop",
+"version": "1.0.0",
+"description": "GM SHOP",
+"main": "server.js",
+"type": "module",
+"scripts": {
+  "start": "node backend/server",
+  "server": "nodemon backend/server",
+  "client": "npm start --prefix front",
+  "dev": "concurrently \"npm run server\" \"npm run client\"",
+  "data:import": "node backend/seeder",
+  "data:destroy": "node backend/seeder -d"
+},
+"repository": {
+  "type": "git",
+  "url": "git+https://github.com/Meylis96/gm-shop.git"
+},
+"author": "Meylis",
+"license": "ISC",
+"bugs": {
+  "url": "https://github.com/Meylis96/gm-shop/issues"
+},
+"homepage": "https://github.com/Meylis96/gm-shop#readme",
+"dependencies": {
+  "bcryptjs": "^2.4.3",
+  "colors": "^1.4.0",
+  "dotenv": "^8.2.0",
+  "es": "^0.7.3",
+  "express": "^4.17.1",
+  "express-async-handler": "^1.1.4",
+  "mongoose": "^5.10.9"
+},
+"devDependencies": {
+  "concurrently": "^5.3.0",
+  "nodemon": "^2.0.6"
+}
 }
