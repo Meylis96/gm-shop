@@ -22,7 +22,7 @@ const importData = async () => {
 
         const adminUser = createdUsers[0]._id;
 
-        const sampleProducts = products.map(product => {
+        const sampleProducts = products.map((product) => {
             return { ...product, user: adminUser }
         });
 
@@ -30,8 +30,8 @@ const importData = async () => {
 
         console.log("Data Imported!".green.inverse);
         process.exit();
-    } catch (e) {
-        console.log(`${e}`.red.inverse);
+    } catch (error) {
+        console.log(`${error}`.red.inverse);
         process.exit(1);
     }
 }
@@ -44,8 +44,10 @@ const destroyData = async () => {
         await User.deleteMany();
 
         console.log("Data Destroyed!".red.inverse);
-    } catch (e) {
-        console.log(`${e}`.red.inverse);
+        process.exit();
+    } catch (error) {
+        console.log(`${error}`.red.inverse);
+        process.exit(1);
     }
 }
 
