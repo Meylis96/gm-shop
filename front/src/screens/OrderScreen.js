@@ -23,7 +23,7 @@ const OrderScreen = ({match}) => {
     useEffect(() => {
         dispatch(getOrderDetails(orderId))
         // eslint-disable-next-line 
-    }, [])
+    }, [dispatch, orderId])
 
 
     return loading ? <Loader /> : error ? <Message variant="danger">{error}</Message> : <>
@@ -115,10 +115,7 @@ const OrderScreen = ({match}) => {
                                 </Row>
                             </ListGroup.Item>
 
-                            <ListGroup.Item>
-                                {error && <Message variant="danger">{error}</Message>}
-                            </ListGroup.Item>
-
+                            {error && <Message varient="danger">{error}</Message>}
                         </ListGroup>
                     </Card>
                 </Col>
