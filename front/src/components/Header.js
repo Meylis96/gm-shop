@@ -1,11 +1,12 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { LinkContainer } from 'react-router-bootstrap';
 import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
 import logo from './img/logo.svg';
 import { logout } from '../actions/userActions';
 
-const Header = () => {
+const Header = ({history}) => {
     const dispatch = useDispatch();
 
     const userLogin = useSelector(state => state.userLogin);
@@ -35,7 +36,7 @@ const Header = () => {
                                             </NavDropdown.Item>
                                         </LinkContainer>
                                         <NavDropdown.Item onClick={logoutHandler}>
-                                            Выйти
+                                            <Link to="/">Выйти</Link>
                                         </NavDropdown.Item>
                                     </NavDropdown>
                                     ) :

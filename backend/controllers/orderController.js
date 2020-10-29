@@ -6,7 +6,6 @@ import Order from '../models/orderModel.js';
 // @route        POST /api/orders
 // @acess        Private
 
-
 const addOrderItems = asyncHandler(async (req, res) => {
     const { orderItems, shippingAddress, paymentMethod, itemsPrice, taxPrice, shippingPrice, totalPrice } = req.body;
 
@@ -33,4 +32,20 @@ const addOrderItems = asyncHandler(async (req, res) => {
     res.json(products)
 });
 
-export {addOrderItems};
+
+// @descr        Get Order by ID
+// @route        GET /api/orders:id
+// @acess        Private
+
+const getOrderById = asyncHandler(async (req, res) => {
+    const order = await Order.findById(req.params.id).populate('user', 'name email');
+
+    if(order) {
+        res.json(order);
+    } else {
+        res.status(404)
+        throw new Error("Заказ не найден");
+    }
+});
+
+export {addOrderItems, getOrderById};
