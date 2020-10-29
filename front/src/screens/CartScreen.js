@@ -20,6 +20,7 @@ const CartScreen = ({match, location, history}) => {
         if (productId) {
             dispatch(addToCart(productId, qty));
         }
+        // eslint-disable-next-line
     }, [dispatch, productId, qty]);
 
     const removeFromCartHandler = (id) => {

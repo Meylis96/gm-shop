@@ -34,6 +34,7 @@ const ProfileScreen = ({ location, history }) => {
                 setEmail(user.email)
             }
         }
+        // eslint-disable-next-line
     }, [dispatch, history, userInfo, user]);
 
     const submitHandler = e => {

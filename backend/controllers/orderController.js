@@ -8,14 +8,14 @@ import Order from '../models/orderModel.js';
 
 
 const addOrderItems = asyncHandler(async (req, res) => {
-    const { addOrderItems, shippingAddress, paymentMethod, itemsPrice, taxPrice, shippingPrice, totalPrice } = req.body;
+    const { orderItems, shippingAddress, paymentMethod, itemsPrice, taxPrice, shippingPrice, totalPrice } = req.body;
 
     if(orderItems && orderItems.length === 0) {
         res.status(400)
         throw new Error('Не удалось найти заказы')
     } else {
         const order = new Order({
-            addOrderItems,
+            orderItems,
             user: req.user._id,
             shippingAddress,
             paymentMethod,

@@ -22,8 +22,7 @@ const orderSchema = mongoose.Schema({
     shippingAddress: {
         address: { type: String, required: true },
         city: { type: String, required: true },
-        postalCode: { type: String, required: true },
-        country: { type: String, required: true },
+        number: { type: String, required: true },
     },
     taxPrice: {
         type: Number,
@@ -66,15 +65,6 @@ const orderSchema = mongoose.Schema({
     deliveredAt: {
         type: Date
     },
-    password: {
-        type: String,
-        required: true
-    },
-    isAdmin: {
-        type: Boolean,
-        required: true,
-        default: false
-    }
 },{
     timestamps: true
 });
