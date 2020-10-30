@@ -12,6 +12,9 @@ const Header = () => {
     const userLogin = useSelector(state => state.userLogin);
     const { userInfo } = userLogin;
 
+    const cart = useSelector(state => state.cart);
+    const { cartItems } = cart;
+
     const logoutHandler = () => {
         dispatch(logout());
         if(logout) {
@@ -27,7 +30,7 @@ const Header = () => {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                         <Navbar.Collapse id="basic-navbar-nav">
                             <Nav className="ml-auto">
-                                <LinkContainer to="/cart"><Nav.Link><i className="fas fa-shopping-cart"></i> Корзина</Nav.Link></LinkContainer>
+                                <LinkContainer to="/cart"><Nav.Link><i className="fas fa-shopping-cart"></i> Корзина ({cartItems.reduce((acc, item) => acc + item.qty, 0)})</Nav.Link></LinkContainer>
                                     {userInfo ? (
                                         <NavDropdown title={userInfo.name} id='username'>
                                             <LinkContainer to="/profile">

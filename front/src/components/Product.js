@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import { Card } from 'react-bootstrap';
 import Rating from './Rating';
 
-const Product = ({product}) => {
+const Product = ({product, history, match}) => {
+
     return (
         <Card className="my-3 p-3 rounded">
             <Link to={`/product/${product._id}`}>
@@ -21,6 +22,8 @@ const Product = ({product}) => {
                 <Card.Text as="h3">
                     {product.price} TMT
                 </Card.Text>
+                <Link style={{color: 'black'}} to={`/product/${product._id}`}>Купить</Link>
+                
             </Card.Body>            
         </Card>
     )
