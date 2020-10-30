@@ -6,7 +6,7 @@ import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
 import logo from './img/logo.svg';
 import { logout } from '../actions/userActions';
 
-const Header = ({history}) => {
+const Header = () => {
     const dispatch = useDispatch();
 
     const userLogin = useSelector(state => state.userLogin);
@@ -30,18 +30,40 @@ const Header = ({history}) => {
                                 <LinkContainer to="/cart"><Nav.Link><i className="fas fa-shopping-cart"></i> Корзина</Nav.Link></LinkContainer>
                                     {userInfo ? (
                                         <NavDropdown title={userInfo.name} id='username'>
-                                        <LinkContainer to="/profile">
-                                            <NavDropdown.Item>
-                                                Профиль
+                                            <LinkContainer to="/profile">
+                                                <NavDropdown.Item>
+                                                    Профиль
+                                                </NavDropdown.Item>
+                                            </LinkContainer>
+                                            <NavDropdown.Item onClick={logoutHandler}>
+                                                <Link to="/">Выйти</Link>
                                             </NavDropdown.Item>
-                                        </LinkContainer>
-                                        <NavDropdown.Item onClick={logoutHandler}>
-                                            <Link to="/">Выйти</Link>
-                                        </NavDropdown.Item>
-                                    </NavDropdown>
-                                    ) :
+                                        </NavDropdown>
+                                    ) : (
                                         <LinkContainer to="/login"><Nav.Link><i className="fas fa-user"></i> Зарегестрироваться</Nav.Link></LinkContainer>
-                                    }
+                                    )}
+                                    {userInfo && userInfo.isAdmin && (
+                                        <NavDropdown title='Панель' id='adminmenu'>
+                                            <LinkContainer to="/admin/userlist">
+                                                <NavDropdown.Item>
+                                                    Пользователи
+                                                </NavDropdown.Item>
+                                            </LinkContainer>
+
+                                            <LinkContainer to="/admin/productlist">
+                                                <NavDropdown.Item>
+                                                    Товары
+                                                </NavDropdown.Item>
+                                            </LinkContainer>
+
+                                            <LinkContainer to="/admin/orderlist">
+                                                <NavDropdown.Item>
+                                                    Заказы
+                                                </NavDropdown.Item>
+                                            </LinkContainer>
+                                            
+                                        </NavDropdown>
+                                    )}
                                     </Nav>
                             </Navbar.Collapse>
                         </Container>
