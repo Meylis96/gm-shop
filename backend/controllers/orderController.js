@@ -66,4 +66,34 @@ const getOrders = asyncHandler(async (req, res) => {
     res.json(orders);
 });
 
-export {addOrderItems, getOrderById, getMyOrders, getOrders};
+// @decs    Update order to delivered
+// @route   GET /api/orders/:id/delivered
+// @access  Private/Admin
+
+const updateOrderToDelivered = asyncHandler(async (req, res) => {
+    const order = await Order.findById(req.params.id);
+
+    if (order) {
+        order.isDelivered = true;
+    }
+    const updatedOrder = await order.save();
+
+    res.json(updatedOrder);
+});
+
+// @decs    Update order to paid
+// @route   GET /api/orders/:id/paid
+// @access  Private/Admin
+
+const updateOrderToPaid = asyncHandler(async (req, res) => {
+    const order = await Order.findById(req.params.id);
+
+    if (order) {
+        order.isPaid = true;
+    }
+    const updatedOrder = await order.save();
+
+    res.json(updatedOrder);
+});
+
+export {addOrderItems, getOrderById, getMyOrders, getOrders, updateOrderToDelivered, updateOrderToPaid};

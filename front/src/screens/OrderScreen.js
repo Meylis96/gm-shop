@@ -1,12 +1,13 @@
 import React, {useEffect} from 'react';
-import { Row, Col, ListGroup, Image, Card } from 'react-bootstrap';
+import { Row, Col, ListGroup, Image, Card, Button } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import {Link} from 'react-router-dom';
 import Message from '../components/Message';
 import Loader from '../components/Loader';
-import { getOrderDetails } from '../actions/orderActions';
+import { getOrderDetails, deliverOrder, payOrder } from '../actions/orderActions';
+import { ORDER_DELIVER_RESET, ORDER_PAY_RESET } from '../constants/orderConstant';
 
-const OrderScreen = ({match}) => {
+const OrderScreen = ({match, history}) => {
     const orderId = match.params.id;
 
     const dispatch = useDispatch();
@@ -14,16 +15,40 @@ const OrderScreen = ({match}) => {
     const orderDetails = useSelector(state => state.orderDetails);
     const {order, loading, error} = orderDetails;
 
+    const userLogin = useSelector(state => state.userLogin);
+    const {userInfo} = userLogin;
+
+    const orderDeliver = useSelector(state => state.orderDeliver);
+    const {loading: loadingDeliver, success: successDeliver} = orderDeliver;
+
+    const orderPay = useSelector(state => state.orderPay);
+    const {loading: loadingPay, success: successPay} = orderPay;
+
     if(!loading){
         order.itemsPrice = Number(order.orderItems.reduce((acc, item) => acc + item.price * item.qty, 0));
     }
 
-    
-
     useEffect(() => {
-        dispatch(getOrderDetails(orderId))
+        if(!userInfo) {
+            history.push('/login');
+        }
+
+        if(!order || successDeliver || successPay) {
+            dispatch({ type: ORDER_DELIVER_RESET });
+            dispatch({ type: ORDER_PAY_RESET });
+            dispatch(getOrderDetails(orderId));
+        }
+
         // eslint-disable-next-line 
-    }, [dispatch, orderId])
+    }, [dispatch, orderId, successDeliver, successPay, order])
+
+    const deliverHandler = () => {
+        dispatch(deliverOrder(order));
+    }
+
+    const payHandler = () => {
+        dispatch(payOrder(order));
+    }
 
 
     return loading ? <Loader /> : error ? <Message variant="danger">{error}</Message> : <>
@@ -114,6 +139,19 @@ const OrderScreen = ({match}) => {
                                     <Col>{order.totalPrice} TMT</Col>
                                 </Row>
                             </ListGroup.Item>
+
+                            {loadingDeliver && <Loader/>}
+                            {userInfo && userInfo.isAdmin && !order.isDelivered && (
+                                <ListGroup.Item>
+                                    <Button type="button" className="btn btn-block" onClick={deliverHandler}>Доставлено</Button>
+                                </ListGroup.Item>
+                            )}
+                            {loadingPay && <Loader/>}
+                            {userInfo && userInfo.isAdmin && !order.isPaid && (
+                                <ListGroup.Item>
+                                    <Button type="button" className="btn btn-block" onClick={payHandler}>Оплачено</Button>
+                                </ListGroup.Item>
+                            )}
 
                             {error && <Message varient="danger">{error}</Message>}
                         </ListGroup>
