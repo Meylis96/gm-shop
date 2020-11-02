@@ -6,7 +6,6 @@ import Product from '../models/productModel.js';
 // @route        GET /api/products
 // @acess        Public
 
-
 const getProducts = asyncHandler(async (req, res) => {
     const products = await Product.find({});
 
@@ -63,7 +62,7 @@ const createProduct = asyncHandler(async (req, res) => {
         name: 'Название продукта',
         price: 0,
         user: req.user._id,
-        image: '/image/sample.jpg',
+        image: '/images/sample.jpg',
         brand: 'Название бренда',
         category: 'Категория товара',
         countInStock: 0,
