@@ -32,6 +32,7 @@ const Header = () => {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                         <Navbar.Collapse id="basic-navbar-nav">
                             <Route render={({history}) => <SearchBox history={history} />} />
+                            <Link className="btn btn-warning ml-4" to="/category">Категория товаров</Link>
                             <Nav className="ml-auto">
                                 <LinkContainer to="/cart"><Nav.Link><i className="fas fa-shopping-cart"></i> Корзина ({cartItems.reduce((acc, item) => acc + item.qty, 0)})</Nav.Link></LinkContainer>
                                     {userInfo ? (
