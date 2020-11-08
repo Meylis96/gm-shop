@@ -7,6 +7,7 @@ import { listProductDetails, createProductReview } from '../actions/productActio
 import Loader from '../components/Loader';
 import Message from '../components/Message';
 import { PRODUCT_CREATE_REVIEW_RESET } from '../constants/productConstants';
+import Meta from '../components/Meta';
 
 const ProductScreen = ({ history, match }) => {
     const [qty, setQty] = useState(1);
@@ -50,8 +51,9 @@ const ProductScreen = ({ history, match }) => {
 
     return (
         <>
-            <Link className="btn btn-warning" to="/">
-                На главную
+            <Meta title={product.name} />
+            <Link className="btn btn-warning" to="/category">
+                К категориям
             </Link>
         {loading ? <Loader/> : error ? <Message varient="danger">{error}</Message> : 
         <>

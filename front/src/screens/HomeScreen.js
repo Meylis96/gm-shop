@@ -4,8 +4,10 @@ import Product from '../components/Product';
 import Message from '../components/Message';
 import Loader from '../components/Loader';
 import Paginate from '../components/Paginate';
+import { Link } from 'react-router-dom';
 import { Row, Col } from 'react-bootstrap';
 import { listProducts } from '../actions/productActions';
+import Meta from '../components/Meta';
 
 
 const HomeScreen = ({match, history}) => {
@@ -25,6 +27,7 @@ const HomeScreen = ({match, history}) => {
 
     return (
         <>
+            <Meta/>
             {loading 
                 ? ( <Loader/> )
                 : error
@@ -32,6 +35,7 @@ const HomeScreen = ({match, history}) => {
                 : 
             (
                 <>
+                {history.location.pathname === `/search/${keyword}` && <Link to="/" className="btn btn-light">На главную</Link>}
                 <Row>
                     <h2>{history.location.pathname === `/search/${keyword}` ? `Запрос поиска: ${keyword}` : "Новые товары"}</h2>
                 </Row> 
