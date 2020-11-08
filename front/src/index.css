@@ -19,3 +19,12 @@ h2 {
 .rating span {
   margin: 0.08rem;
 }
+
+.search-card {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  top: 83px;
+  z-index: 9;
+  left: 240px;
+}
